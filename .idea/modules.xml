@@ -3,6 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/WebCrawlTest.iml" filepath="$PROJECT_DIR$/WebCrawlTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/WebCrawlrTest.iml" filepath="$PROJECT_DIR$/.idea/modules/WebCrawlrTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/WebCrawlrTest_main.iml" filepath="$PROJECT_DIR$/.idea/modules/WebCrawlrTest_main.iml" group="WebCrawlrTest" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/WebCrawlrTest_test.iml" filepath="$PROJECT_DIR$/.idea/modules/WebCrawlrTest_test.iml" group="WebCrawlrTest" />
     </modules>
   </component>
 </project>
