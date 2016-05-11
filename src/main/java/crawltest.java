@@ -2,13 +2,15 @@
  * Created by neil on 5/4/16.
  */
 import java.io.IOException;
-
+import java.util.ArrayList;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+
 public class crawltest {
+    static ArrayList<String> a = new ArrayList();
     public static void main(String[] args) {
         try {
             // fetch the document over HTTP
@@ -22,13 +24,14 @@ public class crawltest {
             Elements links = doc.select("a[href]");
             for (Element link : links) {
                 // get the value from the href attribute
-                System.out.println("\nlink: " + link.attr("href"));
-                System.out.println("text: " + link.text());
+                a.add("\nlink: " + link.attr("href"));
+                //System.out.println("\nlink: " + link.attr("href"));
+                //System.out.println("text: " + link.text());
             }
+            System.out.println(a);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 }
-
 
