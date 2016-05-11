@@ -10,7 +10,7 @@ import org.jsoup.select.Elements;
 
 public class crawltest {
     public static void main(String[] args) {
-        try {
+       /* try {
             // fetch the document over HTTP
             Document doc = Jsoup.connect("http://flatearthsociety.org").get();
 
@@ -27,6 +27,6 @@ public class crawltest {
             }
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 }
