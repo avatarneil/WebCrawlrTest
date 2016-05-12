@@ -9,4 +9,5 @@ repositories {
 
 dependencies {
     compile 'org.jsoup:jsoup:1.9.1'
+    compile 'org.apache.commons:commons-csv:1.3'
 }

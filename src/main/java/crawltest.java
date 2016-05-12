@@ -13,7 +13,8 @@ import java.util.regex.Pattern;
 public class crawltest {
     static ArrayList<String> csvlinks = new ArrayList();
     static ArrayList<Document> csvfiles = new ArrayList();
-    Pattern r = Pattern.compile(pattern);
+    //Pattern r = Pattern.compile(pattern);
+    //Re-add line above and edit line further down in order to restore "pattern" functions
     public static void main(String[] args) {
         try {
             // fetch the document over HTTP
@@ -28,7 +29,7 @@ public class crawltest {
             for (Element link : links) {
                 // get the value from the href attribute
 
-                if(link.attr("href").r.matches("?i:(.*)csv(.*)")){
+                if(link.attr("href").matches("i:(.*)csv(.*)")){
                     csvlinks.add(link.attr("href"));
                 }
 
