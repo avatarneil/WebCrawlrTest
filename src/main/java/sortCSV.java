@@ -15,13 +15,18 @@ import java.io.IOException;
 
 
 public class sortCSV {
-    public static void makeArray() throws IOException{
-        Reader in = new FileReader("data/GeoIPv6.csv");
-        Iterable<CSVRecord> records = CSVFormat.EXCEL.parse(in);
-        for (CSVRecord record : records) {
-            String lastName = record.get("Last Name");
-            String firstName = record.get("First Name");
-            System.out.println(lastName + firstName);
+    public static void makeArray() throws IOException {
+        try {
+            Reader in = new FileReader("data/GeoIPv6.csv");
+            Iterable<CSVRecord> records = CSVFormat.EXCEL.parse(in);
+            for (CSVRecord record : records) {
+                String lastName = record.get("Last Name");
+                String firstName = record.get("First Name");
+                System.out.println(lastName + firstName);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
+
