@@ -15,7 +15,7 @@ import java.io.IOException;
 
 
 public class sortCSV {
-    public static void makeArray() throws FileNotFoundException, IOException{
+    public static void makeArray() throws IOException{
         Reader in = new FileReader("data/GeoIPv6.csv");
         Iterable<CSVRecord> records = CSVFormat.EXCEL.parse(in);
         for (CSVRecord record : records) {
