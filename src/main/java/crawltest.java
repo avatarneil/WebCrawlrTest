@@ -7,10 +7,13 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+//import org.w3c.dom.Element;
 
 
 public class crawltest {
-    static ArrayList<String> a = new ArrayList();
+    static ArrayList<String> csvlinks = new ArrayList();
+    static ArrayList<Document> csvfiles = new ArrayList();
+    Pattern r = Pattern.compile(pattern);
     public static void main(String[] args) {
         try {
             // fetch the document over HTTP
@@ -24,14 +27,31 @@ public class crawltest {
             Elements links = doc.select("a[href]");
             for (Element link : links) {
                 // get the value from the href attribute
-                a.add("\nlink: " + link.attr("href"));
+
+                if(link.attr("href").r.matches("?i:(.*)csv(.*)")){
+                    csvlinks.add(link.attr("href"));
+                }
+
+
+                for(String csvlink : csvlinks){
+
+                 csvfiles.add(Jsoup.connect(csvlink).get());
+
+                }
+
                 //System.out.println("\nlink: " + link.attr("href"));
                 //System.out.println("text: " + link.text());
             }
-            System.out.println(a);
+
+
+
+
+            System.out.println(csvfiles);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 }
+
+
 
