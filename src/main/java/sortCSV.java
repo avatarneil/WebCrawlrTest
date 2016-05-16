@@ -13,20 +13,25 @@ import java.nio.file.Paths;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
+import java.io.FileWriter;
 
 
 public class sortCSV {
     public static void main(String[] args) throws IOException {
         try {
+            final FileWriter sw = new FileWriter("myfile.csv");
+            final CSVPrinter printer = new CSVPrinter(sw, CSVFormat.EXCEL);
             Reader in = new FileReader("data/GeoIPv6.csv");
             CSVParser parser = new CSVParser(in, CSVFormat.EXCEL);
             //System.out.println(parser.getHeaderMap().size());
             List<CSVRecord> list = parser.getRecords();
-            System.out.println(list.size());
+            System.out.println(list.get(1).size());
+            int i=0;
             for (CSVRecord record : list) {
-                String lastName = record.get(0);
-                //System.out.println(lastName + firstName);
+                printer.printRecord(list.get(i));
+                i++;
             }
+            i=0;
         } catch (IOException e) {
             e.printStackTrace();
         }
