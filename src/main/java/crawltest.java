@@ -9,11 +9,15 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 //import org.w3c.dom.Element;
 import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 
 public class crawltest {
     static ArrayList<String> csvlinks = new ArrayList();
     static ArrayList<Document> csvfiles = new ArrayList();
-    //Pattern r = Pattern.compile(pattern);
+
+
+   static Pattern r = Pattern.compile("(.*)csv(.*)",Pattern.CASE_INSENSITIVE);
+
     //Re-add line above and edit line further down in order to restore "pattern" functions
     public static void main(String[] args) {
         try {
@@ -28,8 +32,8 @@ public class crawltest {
             Elements links = doc.select("a[href]");
             for (Element link : links) {
                 // get the value from the href attribute
-
-                if(link.attr("href").matches("i:(.*)csv(.*)")){
+                Matcher m = r.matcher(link.attr("href"));
+                if(m.find()) {
                     csvlinks.add(link.attr("href"));
                 }
 
