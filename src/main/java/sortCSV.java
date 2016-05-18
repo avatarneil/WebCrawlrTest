@@ -16,11 +16,12 @@ import java.util.List;
 import java.io.FileWriter;
 
 
+
 public class sortCSV {
     public static void main(String[] args) throws IOException {
         try {
             final FileWriter sw = new FileWriter("myfile.csv");
-            final CSVPrinter printer = new CSVPrinter(sw, CSVFormat.EXCEL);
+            final CSVPrinter printer = new CSVPrinter(sw, CSVFormat.INFORMIX_UNLOAD);
             Reader in = new FileReader("data/GeoIPv6.csv");
             CSVParser parser = new CSVParser(in, CSVFormat.EXCEL);
             //System.out.println(parser.getHeaderMap().size());
