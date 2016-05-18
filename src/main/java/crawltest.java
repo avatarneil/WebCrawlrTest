@@ -22,7 +22,7 @@ public class crawltest {
     public static void main(String[] args) {
         try {
             // fetch the document over HTTP
-            Document doc = Jsoup.connect("https://offshoreleaks.icij.org/pages/database").get();
+            Document doc = Jsoup.connect("https://gist.github.com/dannguyen/4caf05f4a27775e0a550cd0a4f3fa21f").get();
 
             // get the page title
             String title = doc.title();
