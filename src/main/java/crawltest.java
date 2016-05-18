@@ -16,7 +16,7 @@ public class crawltest {
     static ArrayList<Document> csvfiles = new ArrayList();
 
 
-   static Pattern r = Pattern.compile("(.*)csv(.*)",Pattern.CASE_INSENSITIVE);
+   static Pattern r = Pattern.compile("(.*)\\.csv",Pattern.CASE_INSENSITIVE);
 
     //Re-add line above and edit line further down in order to restore "pattern" functions
     public static void main(String[] args) {
