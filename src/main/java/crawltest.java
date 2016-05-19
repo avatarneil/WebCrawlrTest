@@ -21,6 +21,7 @@ public class crawltest {
     //Re-add line above and edit line further down in order to restore "pattern" functions
     //Run program with a URL, which will then retrieve the CSV files from the given site.
     //ex: WebCrawler https://support.spatialkey.com/spatialkey-sample-csv-data
+    //ex(gradle): ./gradlew run -Pargs="https://support.spatialkey.com/spatialkey-sample-csv-data"
     public static void main(String[] args) {
         String fileName = args[0];
         try {
