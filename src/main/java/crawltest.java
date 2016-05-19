@@ -19,6 +19,8 @@ public class crawltest {
    static Pattern r = Pattern.compile("(.*)\\.csv",Pattern.CASE_INSENSITIVE);
 
     //Re-add line above and edit line further down in order to restore "pattern" functions
+    //Run program with a URL, which will then retrieve the CSV files from the given site.
+    //ex: WebCrawler https://support.spatialkey.com/spatialkey-sample-csv-data
     public static void main(String[] args) {
         try {
             // fetch the document over HTTP
