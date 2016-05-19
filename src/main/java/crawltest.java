@@ -22,7 +22,7 @@ public class crawltest {
     public static void main(String[] args) {
         try {
             // fetch the document over HTTP
-            Document doc = Jsoup.connect("https://gist.github.com/dannguyen/4caf05f4a27775e0a550cd0a4f3fa21f/raw/a92aebcb6a6914afce70adfffc41ca014adae900/how-to-convert-wildlife-access-to-csv.md").get();
+            Document doc = Jsoup.connect("https://support.spatialkey.com/spatialkey-sample-csv-data").get();
 
             // get the page title
             String title = doc.title();
