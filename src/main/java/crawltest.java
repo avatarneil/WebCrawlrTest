@@ -22,9 +22,10 @@ public class crawltest {
     //Run program with a URL, which will then retrieve the CSV files from the given site.
     //ex: WebCrawler https://support.spatialkey.com/spatialkey-sample-csv-data
     public static void main(String[] args) {
+        String fileName = args[0];
         try {
             // fetch the document over HTTP
-            Document doc = Jsoup.connect("https://support.spatialkey.com/spatialkey-sample-csv-data").get();
+            Document doc = Jsoup.connect(fileName).get();
 
             // get the page title
             String title = doc.title();
