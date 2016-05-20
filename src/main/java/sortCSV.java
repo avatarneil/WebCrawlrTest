@@ -18,11 +18,15 @@ import java.io.FileWriter;
 
 
 public class sortCSV {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args){
+    }
+
+    public static void parseCSV(String fileLocation) throws IOException {
         try {
+
             final FileWriter sw = new FileWriter("myfile.csv");
             final CSVPrinter printer = new CSVPrinter(sw, CSVFormat.INFORMIX_UNLOAD);
-            Reader in = new FileReader("data/GeoIPv6.csv");
+            Reader in = new FileReader(fileLocation);
             CSVParser parser = new CSVParser(in, CSVFormat.EXCEL);
             //System.out.println(parser.getHeaderMap().size());
             List<CSVRecord> list = parser.getRecords();
@@ -36,5 +40,7 @@ public class sortCSV {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 }
+
