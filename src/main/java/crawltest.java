@@ -57,7 +57,7 @@ public class crawltest {
                     String extension = FilenameUtils.getExtension(foundcvsfilepath);
                     //downloades the file to the computer this only get 16mbs
                     ReadableByteChannel rbc = Channels.newChannel(foundcvsfilelinks.openStream());
-                    FileOutputStream fos = new FileOutputStream(basename+extension);
+                    FileOutputStream fos = new FileOutputStream(basename+"."+extension);
                     fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
                     // saves the file name for the next part of the program to use
                     csvfiles.add(basename+extension);
