@@ -1,26 +1,27 @@
+
 /*package main.java; /**
  * Created by neil on 5/4/16.
  */
 import java.io.IOException;
-import java.util.ArrayList;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
+        import java.util.ArrayList;
+        import org.jsoup.Jsoup;
+        import org.jsoup.nodes.Document;
+        import org.jsoup.nodes.Element;
+        import org.jsoup.select.Elements;
 //import org.w3c.dom.Element;
-import java.util.regex.Pattern;
-import java.util.regex.Matcher;
-import java.io.FileOutputStream;
-import java.nio.channels.*;
-import java.net.URL;
-import org.apache.commons.io.FilenameUtils;
+        import java.util.regex.Pattern;
+        import java.util.regex.Matcher;
+        import java.io.FileOutputStream;
+        import java.nio.channels.*;
+        import java.net.URL;
+        import org.apache.commons.io.FilenameUtils;
 public class crawltest {
     static ArrayList<String> csvlinks = new ArrayList();
     static ArrayList<String> csvfiles = new ArrayList();
     static String website ="https://support.spatialkey.com/spatialkey-sample-csv-data";
     static URL foundcvsfilelinks;
 
-   static Pattern r = Pattern.compile("(.*)\\.csv$",Pattern.CASE_INSENSITIVE);
+    static Pattern r = Pattern.compile("(.*)\\.csv$",Pattern.CASE_INSENSITIVE);
 
     //Re-add line above and edit line further down in order to restore "pattern" functions
     public static void main(String[] args) {
@@ -71,6 +72,5 @@ public class crawltest {
         }
     }
 }
-
 
 
