@@ -60,7 +60,7 @@ public class crawltest {
                     FileOutputStream fos = new FileOutputStream(basename+"."+extension);
                     fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
                     // saves the file name for the next part of the program to use
-                    csvfiles.add(basename+extension);
+                    csvfiles.add(basename+"."+extension);
 
                 }
 
