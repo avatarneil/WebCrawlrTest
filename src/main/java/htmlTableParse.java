@@ -51,8 +51,9 @@ public class htmlTableParse {
             }
                 final FileWriter sw = new FileWriter("myfile.csv");
                 final CSVPrinter printer = new CSVPrinter(sw, CSVFormat.INFORMIX_UNLOAD);
+                String[] thing = new String[]{ "A", "B", "C" };
                 for (ArrayList currentList:rowStrings) {
-                    printer.printRecords(currentList.toArray());
+                    printer.printRecord(thing);
                 }
                 System.out.println();
 
