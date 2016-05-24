@@ -52,7 +52,7 @@ public class htmlTableParse {
                 final FileWriter sw = new FileWriter("myfile.csv");
                 final CSVPrinter printer = new CSVPrinter(sw, CSVFormat.INFORMIX_UNLOAD);
                 for (ArrayList currentList:rowStrings) {
-                    printer.printRecord(currentList);
+                    printer.printRecords(currentList.toArray());
                 }
                 System.out.println();
 
