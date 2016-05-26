@@ -36,8 +36,9 @@ public class htmlTableParse {
 
             Elements tableHeaderEles = tableElements.select("thead tr th");
             System.out.println("headers");
+            ArrayList<String> headers = new ArrayList();
             for (int i = 0; i < tableHeaderEles.size(); i++) {
-                System.out.println(tableHeaderEles.get(i).text());
+                headers.add(tableHeaderEles.get(i).text());
             }
             System.out.println();
 
@@ -46,7 +47,6 @@ public class htmlTableParse {
             for (int i = 0; i < tableRowElements.size(); i++) {
                 ArrayList<String> currentList = new ArrayList();
                 Element row = tableRowElements.get(i);
-                System.out.println("row");
                 Elements rowItems = row.select("td");
                 for (int j = 0; j < rowItems.size(); j++) {
                     currentList.add(rowItems.get(j).text());
@@ -56,6 +56,7 @@ public class htmlTableParse {
             }
             final FileWriter sw = new FileWriter("myfile.csv");
             final CSVPrinter printer = new CSVPrinter(sw, CSVFormat.EXCEL.withRecordSeparator('\n'));
+            printer.printRecord(headers);
             printer.printRecords(rowStrings);
             printer.close();
             System.out.println();
