@@ -28,9 +28,17 @@ public class crawltest {
     //ex: WebCrawler https://support.spatialkey.com/spatialkey-sample-csv-data
     //ex(gradle): ./gradlew run -Pargs="https://support.spatialkey.com/spatialkey-sample-csv-data"
     public static void main(String[] args) {
-        String fileName = args[0];
-        downloadCSV(fileName);
+        if(args.length>=1) {
+            for (String fileName:args) {
+                downloadCSV(fileName);
+            }
+        }else{
+            System.out.println("please type in a website with csv files on it");
+        }
     }
+
+
+
 
     public static ArrayList<String> downloadCSV(String fileName) {
         try {
@@ -38,9 +46,6 @@ public class crawltest {
 
             Document doc = Jsoup.connect(fileName).get();
 
-            // get the page title
-            String title = doc.title();
-            System.out.println("title: " + title);
 
             // get all links in page
             Elements links = doc.select("a[href]");
@@ -73,12 +78,12 @@ public class crawltest {
             }
 
 
-            return csvfiles;
+
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }     return csvfiles;
     }
 }
-}
+
 
 
