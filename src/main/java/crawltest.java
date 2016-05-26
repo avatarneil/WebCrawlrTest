@@ -28,20 +28,27 @@ public class crawltest {
     //ex: WebCrawler https://support.spatialkey.com/spatialkey-sample-csv-data
     //ex(gradle): ./gradlew run -Pargs="https://support.spatialkey.com/spatialkey-sample-csv-data"
     public static void main(String[] args) {
-        String fileName = args[0];
-        htmlTableParse.parseTableOnSite(fileName);
-        ArrayList<String> fileNames = downloadCSV(fileName);
-        try {
-            if (fileNames.size() <= 1) {
-                sortCSV.parseCSV(fileNames);
+        if(args.length>=1) {
+            for (String fileName:args) {
+                htmlTableParse.parseTableOnSite(fileName);
+                ArrayList<String> fileNames = downloadCSV(fileName);
+                try {
+                    if (fileNames.size() <= 1) {
+                        sortCSV.parseCSV(fileNames);
+                    }
+                    if (fileNames.size() > 1) {
+                        sortCSV.parseCSVs(fileNames);
+                    }
+                }catch (IOException e) {
+                    e.printStackTrace();
             }
-            if (fileNames.size() > 1) {
-                sortCSV.parseCSVs(fileNames);
-            }
-        }catch (IOException e) {
-            e.printStackTrace();
+        }else{
+            System.out.println("please type in a website with csv files on it");
         }
     }
+
+
+
 
     public static ArrayList<String> downloadCSV(String fileName) {
         try {
@@ -49,9 +56,6 @@ public class crawltest {
 
             Document doc = Jsoup.connect(fileName).get();
 
-            // get the page title
-            String title = doc.title();
-            System.out.println("title: " + title);
 
             // get all links in page
             Elements links = doc.select("a[href]");
@@ -82,10 +86,19 @@ public class crawltest {
                 //System.out.println("\nlink: " + link.attr("href"));
                 //System.out.println("text: " + link.text());
             }
+<<<<<<< HEAD
         } catch (IOException e) {
             e.printStackTrace();
         }
         return csvfiles;
+=======
+
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }     return csvfiles;
+>>>>>>> 12ce361e8109298dc01417ad155fb08a2ba25a4b
     }
 }
 
