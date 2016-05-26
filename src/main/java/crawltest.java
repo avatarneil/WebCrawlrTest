@@ -18,10 +18,10 @@ import java.io.IOException;
 public class crawltest {
     static ArrayList<String> csvlinks = new ArrayList();
     static ArrayList<String> csvfiles = new ArrayList();
-    static String website ="https://support.spatialkey.com/spatialkey-sample-csv-data";
+    static String website = "https://support.spatialkey.com/spatialkey-sample-csv-data";
     static URL foundcvsfilelinks;
 
-    static Pattern r = Pattern.compile("(.*)\\.csv$",Pattern.CASE_INSENSITIVE);
+    static Pattern r = Pattern.compile("(.*)\\.csv$", Pattern.CASE_INSENSITIVE);
 
     //Re-add line above and edit line further down in order to restore "pattern" functions
     //Run program with a URL, which will then retrieve the CSV files from the given site.
@@ -29,6 +29,10 @@ public class crawltest {
     //ex(gradle): ./gradlew run -Pargs="https://support.spatialkey.com/spatialkey-sample-csv-data"
     public static void main(String[] args) {
         String fileName = args[0];
+        downloadCSV(fileName);
+    }
+
+    public static ArrayList<String> downloadCSV(String fileName) {
         try {
             // fetch the document over HTTP
 
@@ -43,24 +47,24 @@ public class crawltest {
             for (Element link : links) {
                 // get the value from the href attribute
                 Matcher m = r.matcher(link.attr("href"));
-                if(m.find()) {
+                if (m.find()) {
                     csvlinks.add(link.attr("href"));
                 }
 
 
-                for(String csvlink : csvlinks){
+                for (String csvlink : csvlinks) {
                     // this get the url path ei the /blah/blah/bla.whatever
 
-                    foundcvsfilelinks= new URL(csvlink);
-                    String foundcvsfilepath=foundcvsfilelinks.getPath();
+                    foundcvsfilelinks = new URL(csvlink);
+                    String foundcvsfilepath = foundcvsfilelinks.getPath();
                     String basename = FilenameUtils.getBaseName(foundcvsfilepath);
                     String extension = FilenameUtils.getExtension(foundcvsfilepath);
                     //downloades the file to the computer this only get 16mbs
                     ReadableByteChannel rbc = Channels.newChannel(foundcvsfilelinks.openStream());
-                    FileOutputStream fos = new FileOutputStream(basename+"."+extension);
+                    FileOutputStream fos = new FileOutputStream(basename + "." + extension);
                     fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
                     // saves the file name for the next part of the program to use
-                    csvfiles.add(basename+"."+extension);
+                    csvfiles.add(basename + "." + extension);
 
                 }
 
@@ -69,13 +73,12 @@ public class crawltest {
             }
 
 
-
-
-            System.out.println(csvfiles);
+            return csvfiles;
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+}
 }
 
 
