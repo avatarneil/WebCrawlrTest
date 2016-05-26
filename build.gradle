@@ -1,7 +1,7 @@
 apply plugin: 'java'
 apply plugin: 'application'
 
-mainClassName = "sortCSV"
+mainClassName = "htmlTableParse"
 
 run {
     if ( project.hasProperty('args') ) {
