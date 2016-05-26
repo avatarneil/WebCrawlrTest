@@ -42,6 +42,7 @@ public class crawltest {
                 }catch (IOException e) {
                     e.printStackTrace();
             }
+            }
         }else{
             System.out.println("please type in a website with csv files on it");
         }
@@ -86,19 +87,12 @@ public class crawltest {
                 //System.out.println("\nlink: " + link.attr("href"));
                 //System.out.println("text: " + link.text());
             }
-<<<<<<< HEAD
+
         } catch (IOException e) {
             e.printStackTrace();
         }
         return csvfiles;
-=======
 
-
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }     return csvfiles;
->>>>>>> 12ce361e8109298dc01417ad155fb08a2ba25a4b
     }
 }
 
