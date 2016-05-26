@@ -29,7 +29,18 @@ public class crawltest {
     //ex(gradle): ./gradlew run -Pargs="https://support.spatialkey.com/spatialkey-sample-csv-data"
     public static void main(String[] args) {
         String fileName = args[0];
-        downloadCSV(fileName);
+        htmlTableParse.parseTableOnSite(fileName);
+        ArrayList<String> fileNames = downloadCSV(fileName);
+        try {
+            if (fileNames.size() <= 1) {
+                sortCSV.parseCSV(fileNames);
+            }
+            if (fileNames.size() > 1) {
+                sortCSV.parseCSVs(fileNames);
+            }
+        }catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static ArrayList<String> downloadCSV(String fileName) {
@@ -71,14 +82,12 @@ public class crawltest {
                 //System.out.println("\nlink: " + link.attr("href"));
                 //System.out.println("text: " + link.text());
             }
-
-
-            return csvfiles;
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return csvfiles;
     }
 }
-}
+
 
 
