@@ -35,9 +35,11 @@ public class crawltest {
                 try {
                     if (fileNames.size() <= 1) {
                         sortCSV.parseCSV(fileNames);
+                        htmlTableParse.parseTableOnSite(fileName);
                     }
                     if (fileNames.size() > 1) {
                         sortCSV.parseCSVs(fileNames);
+                        htmlTableParse.parseTableOnSite(fileName);
                     }
                 }catch (IOException e) {
                     e.printStackTrace();

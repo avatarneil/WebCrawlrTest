@@ -28,7 +28,7 @@ import java.io.FileWriter;
 
 public class htmlTableParse {
     public static void parseTableOnSite(String fileName) {
-        String html = "fileName";
+        String html = fileName;
         ArrayList<ArrayList<String>> rowStrings = new ArrayList();
         try {
             Document doc = Jsoup.connect(html).get();
