@@ -54,7 +54,7 @@ public class htmlTableParse {
                 System.out.println(rowStrings);
                 rowStrings.add(currentList);
             }
-            final FileWriter sw = new FileWriter("myfile.csv");
+            final FileWriter sw = new FileWriter("htmlparse.csv");
             final CSVPrinter printer = new CSVPrinter(sw, CSVFormat.EXCEL.withRecordSeparator('\n'));
             printer.printRecord(headers);
             printer.printRecords(rowStrings);
