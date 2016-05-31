@@ -24,14 +24,13 @@ public class sortCSV {
         try {
             if (fileLocations.size() >= 1) {
                 int j = 0;
-                if (j <= fileLocations.size()) {
+                if (j < fileLocations.size()) {
                     final FileWriter sw = new FileWriter(fileLocations.get(j));
                     final CSVPrinter printer = new CSVPrinter(sw, CSVFormat.INFORMIX_UNLOAD);
                     Reader in = new FileReader(fileLocations.get(j)); //NEED TO MAKE WORK WITH MULTIPLE FILES
                     CSVParser parser = new CSVParser(in, CSVFormat.EXCEL);
                     //System.out.println(parser.getHeaderMap().size());
                     List<CSVRecord> list = parser.getRecords();
-                    System.out.println(list.get(1).size());
                     int i = 0;
                     for (CSVRecord record : list) {
                         printer.printRecord(list.get(i));
