@@ -19,3 +19,7 @@ dependencies {
     compile 'com.mashape.unirest:unirest-java:1.4.9'
     compile 'commons-io:commons-io:2.5'
 }
+
+task wrapper(type Wrapper) {
+    gradleVersion = '2.0'
+}
